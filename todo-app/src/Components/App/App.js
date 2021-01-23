@@ -10,12 +10,13 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      ListOfTodos: ['TEST1', 'TEST2'],
+      ListOfTodos: [],
       TodoInput: '',
     }
 
     this.handleInput = this.handleInput.bind(this);
     this.AddTodo = this.AddTodo.bind(this);
+    this.RemoveTodo = this.RemoveTodo.bind(this);
   }
 
   handleInput(input) {
@@ -26,8 +27,17 @@ class App extends React.Component {
 
   AddTodo() {
     let TodoInput = this.state.TodoInput;
+    if (TodoInput) {
+      let Todos = this.state.ListOfTodos;
+      Todos.push(TodoInput);
+      this.setState({ListOfTodos: Todos})
+    }
+  }
+
+  RemoveTodo(todo) {
     let Todos = this.state.ListOfTodos;
-    Todos.push(TodoInput);
+    let index = Todos.indexOf(todo);
+    Todos.splice(index, 1);
     this.setState({ListOfTodos: Todos})
   }
 
@@ -38,7 +48,7 @@ class App extends React.Component {
         <h1>ToDo List</h1>
         <div className="list-container">
           <AddTodo AddTodo={this.AddTodo} handleInput={this.handleInput}/>
-          <TodoList List={this.state.ListOfTodos}/>
+          <TodoList RemoveTodo={this.RemoveTodo} List={this.state.ListOfTodos}/>
         </div>
         </header>
       </div>

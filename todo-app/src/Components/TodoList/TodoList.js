@@ -16,6 +16,7 @@ class TodoList extends React.Component {
             <TodoItem 
             key={listItem.id}
             Item={listItem} 
+            RemoveTodo={this.props.RemoveTodo}
             /> 
             )};
         </div>
