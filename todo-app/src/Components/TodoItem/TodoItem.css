@@ -1,20 +1,22 @@
 .Todo-item {
     margin-top: 12px;
-    width: 500px;
+    width: 90%;
     height: 75px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     border-radius: 25px;
-    margin: 10px auto;
+    margin: 10px;
+    background-color: #fff;
 }
 
 .Todo-item > .Todo-item-input {
-    width: 500px;
+    width: 90%;
     border-radius: 25px;
     border: none;
     outline: none;
     font-size: 50px;
     background-color: #fff;
+    padding-left: 20px;
 }
 
 .Remove-button-container {
@@ -28,11 +30,12 @@
     border: none;
     width: 35px;
     height: 35px;
-    right: 13px;
+    left: 60px;
     top: 20px;
     opacity: 60%;
     outline: none;
     z-index: 999;
     border-radius: 50%;
     color: #fff;
+    cursor: pointer;
 }

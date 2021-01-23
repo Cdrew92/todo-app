@@ -36,4 +36,5 @@
     opacity: 50%;
     outline: none;
     z-index: 999;
+    cursor: pointer;
 }
