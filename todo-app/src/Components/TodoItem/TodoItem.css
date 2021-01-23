@@ -1,0 +1,38 @@
+.Todo-item {
+    margin-top: 12px;
+    width: 500px;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    border-radius: 25px;
+    margin: 10px auto;
+}
+
+.Todo-item > .Todo-item-input {
+    width: 500px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    font-size: 50px;
+    background-color: #fff;
+}
+
+.Remove-button-container {
+    position: relative;
+}
+
+.Remove-todo-button {
+    position: absolute;
+    font-size: 18px;
+    background-color: red;
+    border: none;
+    width: 35px;
+    height: 35px;
+    right: 13px;
+    top: 20px;
+    opacity: 60%;
+    outline: none;
+    z-index: 999;
+    border-radius: 50%;
+    color: #fff;
+}

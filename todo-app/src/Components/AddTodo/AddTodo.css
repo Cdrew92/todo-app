@@ -1,0 +1,39 @@
+.Add-todo {
+    height: 75px;
+    width: 500px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: flex-start;
+    background-color: #fff;
+    margin: 0 auto;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.Add-todo > .Add-todo-input {
+    width: 400px;
+    padding-left: 20px;
+    height: 65px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    font-size: 50px;
+    background-color: #fff;
+}
+
+.Button-container {
+    position: relative;
+}
+
+.Add-todo-button {
+    position: absolute;
+    font-size: 18px;
+    background-color: transparent;
+    border: none;
+    width: 100px;
+    right: -90px;
+    top: -20px;
+    opacity: 50%;
+    outline: none;
+    z-index: 999;
+}
