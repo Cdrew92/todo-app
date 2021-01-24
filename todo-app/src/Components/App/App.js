@@ -17,6 +17,7 @@ class App extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.AddTodo = this.AddTodo.bind(this);
     this.RemoveTodo = this.RemoveTodo.bind(this);
+    this.getDate = this.getDate.bind(this);
   }
 
   handleInput(input) {
@@ -25,11 +26,23 @@ class App extends React.Component {
     });
   }
 
+  getDate() {
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = today.getFullYear();
+
+    today = mm + '/' + dd + '/' + yyyy;
+    return today;
+  }
+
   AddTodo() {
     let TodoInput = this.state.TodoInput;
+    let InputAndDate = {input: TodoInput, DateAdded: this.getDate()};
     if (TodoInput) {
       let Todos = this.state.ListOfTodos;
-      Todos.push(TodoInput);
+      Todos.push(InputAndDate);
+      let flatTodos = {...Todos.flat()}
       this.setState({ListOfTodos: Todos})
     }
   }
@@ -47,7 +60,7 @@ class App extends React.Component {
         <header className="App-header">
         <h1>ToDo List</h1>
         <div className="list-container">
-          <AddTodo AddTodo={this.AddTodo} handleInput={this.handleInput}/>
+          <AddTodo AddTodo={this.AddTodo} setDate={this.getDate} handleInput={this.handleInput}/>
           <TodoList RemoveTodo={this.RemoveTodo} List={this.state.ListOfTodos}/>
         </div>
         </header>
