@@ -20,6 +20,21 @@ class App extends React.Component {
     this.getDate = this.getDate.bind(this);
   }
 
+  componentDidMount() {
+    const savedTodos = localStorage.getItem('savedTodos');
+    let parsedSavedTodos = JSON.parse(savedTodos)
+    let todoArray = [];
+    for(var i in parsedSavedTodos) {
+      todoArray.push(parsedSavedTodos[i]);
+    }
+    let flattenedTodoArray = todoArray.flat();
+        if (flattenedTodoArray.length > 0) {
+      this.setState({
+        ListOfTodos: flattenedTodoArray,
+      })
+    }
+  }
+
   handleInput(input) {
     this.setState({
       TodoInput: input,
@@ -44,6 +59,7 @@ class App extends React.Component {
       Todos.push(InputAndDate);
       let flatTodos = {...Todos.flat()}
       this.setState({ListOfTodos: Todos})
+      localStorage.setItem('savedTodos', JSON.stringify({ListOfTodos: Todos}));
     }
   }
 
