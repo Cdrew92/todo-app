@@ -60,6 +60,7 @@ class App extends React.Component {
       let flatTodos = {...Todos.flat()}
       this.setState({ListOfTodos: Todos})
       localStorage.setItem('savedTodos', JSON.stringify({ListOfTodos: Todos}));
+      this.setState({TodoInput: ''})
     }
   }
 
@@ -76,7 +77,7 @@ class App extends React.Component {
         <header className="App-header">
         <h1>ToDo List</h1>
         <div className="list-container">
-          <AddTodo AddTodo={this.AddTodo} setDate={this.getDate} handleInput={this.handleInput}/>
+          <AddTodo TodoInput={this.state.TodoInput} AddTodo={this.AddTodo} setDate={this.getDate} handleInput={this.handleInput}/>
           <TodoList RemoveTodo={this.RemoveTodo} List={this.state.ListOfTodos}/>
         </div>
         </header>

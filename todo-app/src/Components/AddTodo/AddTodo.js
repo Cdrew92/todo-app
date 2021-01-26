@@ -17,7 +17,7 @@ class AddTodo extends React.Component {
   render() {
     return (
       <div className="Add-todo">
-          <input onChange={this.handleInput} className="Add-todo-input"></input>
+          <input value={this.props.TodoInput} onChange={this.handleInput} className="Add-todo-input"></input>
           <div className="Button-container">
           <button onClick={this.props.AddTodo} type="submit" className="Add-todo-button">Add To List</button>
           </div>
